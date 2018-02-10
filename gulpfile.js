@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     browserSync = require("browser-sync"),
     fileinclude = require('gulp-file-include'),
-    reload = browserSync.reload;
+    reload = browserSync.reload,
+    rigger = require('gulp-rigger');
 
 var path = {
     build: {
@@ -60,6 +61,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('html:build', function () {
     gulp.src(path.src.html) 
+        .pipe(rigger())
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));
 });
@@ -92,7 +94,7 @@ gulp.task('style:build', function () {
 });
 
 gulp.task('image:build', function () {
-    rimraf(path.clean.img, function(cb) {console.log(cb)});
+    rimraf(path.clean.img, function() {});
     return gulp.src(path.src.img)
         .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));

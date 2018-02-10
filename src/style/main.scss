@@ -1,5 +1,9 @@
-@import "partials/partial";
+@import "partials/fonts";
 
 body {
+  font-family: "HelveticaNeue";
   background: #eeeeee;
+  h1 {
+    font-weight: normal;
+  }
 }

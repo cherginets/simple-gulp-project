@@ -1,1 +1,1 @@
-body h1{color:#0b3e6f;font-weight:700}body{background:#eee}
+@font-face{font-family:HelveticaNeue;src:url(../../fonts/HelveticaNeueSimple/HelveticaNeueCyr-Thin.otf) format("otf");font-style:normal;font-weight:400}body{font-family:HelveticaNeue;background:#eee}body h1{font-weight:400}
