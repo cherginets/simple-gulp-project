@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     browserSync = require("browser-sync"),
     fileinclude = require('gulp-file-include'),
     reload = browserSync.reload,
-    rigger = require('gulp-rigger');
+    rigger = require('gulp-rigger'),
+    sourcemaps = require('gulp-sourcemaps');
 
 var path = {
     build: {
@@ -83,9 +84,7 @@ gulp.task('style:build', function () {
     gulp.src(path.src.style)
         .pipe(sass({
             outputStyle: 'compressed',
-            sourceMap: true,
-            errLogToConsole: true
-        }))
+        }).on('error', sass.logError))
         .pipe(concat('common.css'))
         .pipe(prefixer())
         .pipe(cssmin())
